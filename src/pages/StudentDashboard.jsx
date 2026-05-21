@@ -15,7 +15,7 @@ const StudentDashboard = () => {
     if (!user || user.role !== 'student') { navigate('/login'); return; }
     const fetchApplications = async () => {
       try {
-        const res = await axios.get(`http://localhost:5000/api/applications?role=student&userId=${user.id}`);
+        const res = await axios.get(`/api/applications?role=student&userId=${user.id}`);
         setApplications(res.data);
       } catch (error) { console.error(error); }
       finally { setLoading(false); }

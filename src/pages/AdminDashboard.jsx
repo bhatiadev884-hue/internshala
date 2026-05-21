@@ -19,14 +19,14 @@ const AdminDashboard = () => {
   useEffect(() => {
     if (!user || user.role !== 'admin') { navigate('/login'); return; }
     if (activeTab === 'applications') {
-      axios.get('http://localhost:5000/api/applications?role=admin').then(res => setApplications(res.data)).catch(console.error);
+      axios.get('/api/applications?role=admin').then(res => setApplications(res.data)).catch(console.error);
     }
   }, [user, navigate, activeTab]);
 
   const handlePublish = async (e) => {
     e.preventDefault();
     try {
-      await axios.post('http://localhost:5000/api/internships', formData);
+      await axios.post('/api/internships', formData);
       setPublishSuccess(true);
       setFormData({ title: '', company: '', location: '', duration: '', stipend: '', wfh: false, profile: '' });
       setTimeout(() => setPublishSuccess(false), 3000);

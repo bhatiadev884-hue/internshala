@@ -25,7 +25,7 @@ const InternshipDetailsModal = ({ internship, onClose }) => {
     setApplying(true);
     setError('');
     try {
-      await axios.post('http://localhost:5000/api/applications', {
+      await axios.post('/api/applications', {
         studentId: user.id,
         studentName: user.name,
         internshipId: internship.id,

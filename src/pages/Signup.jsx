@@ -20,7 +20,7 @@ const Signup = () => {
     setLoading(true);
     setError('');
     try {
-      const response = await axios.post('http://localhost:5000/api/auth/signup', { name, email, password, role });
+      const response = await axios.post('/api/auth/signup', { name, email, password, role });
       login(response.data.user, response.data.token);
       if (response.data.user.role === 'admin') {
         navigate('/admin/dashboard');
